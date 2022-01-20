@@ -8,7 +8,7 @@ const app = express();
 app.use(BodyParser.json());
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(Path.join(__dirname, 'frontend')));
+app.use(express.static(Path.join(__dirname, '/frontend')));
 app.use(BodyParser.json());
 Monogose.connect(
   'mongodb+srv://GISFY:GISFY@gisfy.dfnyh.mongodb.net/Assignment?retryWrites=true&w=majority',
@@ -42,5 +42,5 @@ app.use((req, res, next) => {
 app.use('/api/user', User);
 app.use('/api/blogs', Blogs);
 app.get('*', (req, res) => {
-  res.sendFile(Path.join(__dirname, 'frontend/build/index.html'));
+  res.sendFile(Path.join(__dirname, '/frontend/build', 'index.html'));
 });
