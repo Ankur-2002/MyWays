@@ -8,7 +8,7 @@ const app = express();
 app.use(BodyParser.json());
 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(Path.join(__dirname, '/frontend')));
+app.use(express.static(Path.join(__dirname, '/frontend/build')));
 app.use(BodyParser.json());
 Monogose.connect(
   'mongodb+srv://GISFY:GISFY@gisfy.dfnyh.mongodb.net/Assignment?retryWrites=true&w=majority',
