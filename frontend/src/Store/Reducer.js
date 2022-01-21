@@ -21,9 +21,10 @@ const reducer = (state = initialState, action) => {
         blogs: state.blogs.filter(blog => blog._id !== action.id),
       };
     case 'ADD_BLOG':
+      console.log(action.blog);
       return {
         ...state,
-        blogs: [action.blog, ...state.blogs],
+        blogs: state.blogs.concat(action.blog),
       };
     case 'EDIT_BLOG':
       console.log(action.blog.blog._id, state.blogs);

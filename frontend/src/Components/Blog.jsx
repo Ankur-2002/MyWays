@@ -76,7 +76,7 @@ export const Blog = props => {
           Edit={Edit}
           setform={setEdit}
           EditBlog={data => {
-            console.log(data);
+            // console.log(data);
 
             Submit(data);
           }}

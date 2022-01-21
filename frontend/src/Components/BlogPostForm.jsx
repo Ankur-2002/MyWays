@@ -39,7 +39,7 @@ const BlogPostForm = ({ setform, setBlogs, data, Edit, EditBlog, submit }) => {
       `${Edit ? 'PUT' : 'POST'}`,
       Object
     );
-    console.log(datas);
+    // console.log(datas);
 
     if (Edit) {
       EditBlog(datas);
