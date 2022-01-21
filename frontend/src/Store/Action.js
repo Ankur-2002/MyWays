@@ -22,3 +22,9 @@ export const Editblog = blog => {
     blog,
   };
 };
+export const AddBlog = blog => {
+  return {
+    type: 'ADD_BLOG',
+    blog,
+  };
+};

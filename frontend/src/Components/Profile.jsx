@@ -1,8 +1,9 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../Constants/Button';
 import Card from '../Constants/Card';
+import { AddBlog } from '../Store/Action';
 import BlogPostForm from './BlogPostForm';
 export const Profile = () => {
   const state = useSelector(state => state);
@@ -10,9 +11,11 @@ export const Profile = () => {
   const user = state.user;
   const blogs = state.blogs;
   const [Blogs, setBlogs] = useState([]);
-
+  const Dispatch = useDispatch();
   const [form, setform] = useState(false);
-
+  const sumbit = data => {
+    Dispatch(AddBlog(data));
+  };
   useEffect(() => {
     setBlogs(blogs.filter(item => item.owner === user._id));
   }, [blogs]);
@@ -46,7 +49,9 @@ export const Profile = () => {
           </UserBlogs>
         </Bottom>
       </Container>
-      {form && <BlogPostForm setform={setform} setBlogs={setBlogs} />}
+      {form && (
+        <BlogPostForm setform={setform} setBlogs={setBlogs} sumbit={sumbit} />
+      )}
     </>
   );
 };

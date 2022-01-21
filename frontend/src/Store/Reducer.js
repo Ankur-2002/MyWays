@@ -20,6 +20,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         blogs: state.blogs.filter(blog => blog._id !== action.id),
       };
+    case 'ADD_BLOG':
+      return {
+        ...state,
+        blogs: [action.blog, ...state.blogs],
+      };
     case 'EDIT_BLOG':
       console.log(action.blog.blog._id, state.blogs);
       const index = state.blogs.findIndex(

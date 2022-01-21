@@ -10,15 +10,11 @@ app.use(BodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(Path.join(__dirname, 'frontend/build')));
 app.use(BodyParser.json());
-Monogose.connect(
-  'mongodb+srv://GISFY:GISFY@gisfy.dfnyh.mongodb.net/Assignment?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-)
+Monogose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(res => {
-    // console.log(res);
     app.listen(process.env.PORT || 5000);
   })
   .catch(err => {
