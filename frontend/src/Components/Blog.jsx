@@ -43,7 +43,6 @@ export const Blog = props => {
     <>
       <Container>
         <Title>{Blog.title}</Title>
-
         <Top>
           <Image src={Blog.image} />
         </Top>

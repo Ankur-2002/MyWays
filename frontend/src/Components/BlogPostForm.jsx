@@ -4,7 +4,7 @@ import { Fetch } from '../Constants/api';
 import Button from '../Constants/Button';
 import Input from '../Constants/Input';
 
-const BlogPostForm = ({ setform, setBlogs, data, Edit, EditBlog, submit }) => {
+const BlogPostForm = ({ setform, setBlogs, data, Edit, EditBlog, Submit }) => {
   const [title, setTitle] = useState(data?.title);
   const [content, setContent] = useState(data?.description);
   const [image, setImage] = useState(data?.image);
@@ -44,7 +44,7 @@ const BlogPostForm = ({ setform, setBlogs, data, Edit, EditBlog, submit }) => {
     if (Edit) {
       EditBlog(datas);
     } else {
-      submit(datas.blog);
+      Submit(datas.blog);
 
       setBlogs(items => {
         return [...items, datas.blog];
