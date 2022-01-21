@@ -44,11 +44,10 @@ const BlogPostForm = ({ setform, setBlogs, data, Edit, EditBlog, Submit }) => {
     if (Edit) {
       EditBlog(datas);
     } else {
-      // Submit(datas.blog);
-
       setBlogs(items => {
         return [...items, datas.blog];
       });
+      Submit(datas.blog);
     }
     setform(false);
   };

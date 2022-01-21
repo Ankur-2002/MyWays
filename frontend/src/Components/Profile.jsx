@@ -13,7 +13,7 @@ export const Profile = () => {
   const [Blogs, setBlogs] = useState([]);
   const Dispatch = useDispatch();
   const [form, setform] = useState(false);
-  const Submit = data => {
+  const SubMit = data => {
     Dispatch(AddBlog(data));
   };
   useEffect(() => {
@@ -50,7 +50,11 @@ export const Profile = () => {
         </Bottom>
       </Container>
       {form && (
-        <BlogPostForm setform={setform} setBlogs={setBlogs} Submit={Submit} />
+        <BlogPostForm
+          setform={setform}
+          setBlogs={setBlogs}
+          Submit={data => SubMit(data)}
+        />
       )}
     </>
   );
